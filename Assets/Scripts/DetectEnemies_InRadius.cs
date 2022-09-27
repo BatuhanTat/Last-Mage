@@ -12,7 +12,11 @@ public class DetectEnemies_InRadius : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy0" || 
+            other.tag == "Enemy1" || 
+            other.tag == "Enemy2" || 
+            other.tag == "Enemy3" || 
+            other.tag == "Enemy4")
         {
             enemyList_InRadius.Add(other.gameObject);
         }
@@ -20,7 +24,11 @@ public class DetectEnemies_InRadius : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy0" || 
+            other.tag == "Enemy1" || 
+            other.tag == "Enemy2" || 
+            other.tag == "Enemy3" || 
+            other.tag == "Enemy4")
         {
             enemyList_InRadius.Remove(other.gameObject);
         }

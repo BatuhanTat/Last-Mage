@@ -9,7 +9,7 @@ public class ProjectileBehaviour : MonoBehaviour
     //[SerializeField] float projectileDamage = 15.0f;
     [SerializeField] float lifeTime = 5.0f;
 
-    Transform target;
+    GameObject target;
     bool homing;
     Vector3 moveDirection;
 
@@ -26,23 +26,24 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void MoveTowardsEnemy()
     {
-        if (homing && target != null)
+        if (homing && target.activeSelf == true)
         {
             moveDirection = (target.transform.position - transform.position).normalized;
             transform.position += moveDirection * speed * Time.deltaTime;
             transform.up = target.transform.position - transform.position;
         }
-        else if (target == null)
+        else if (target.activeSelf == false)
         {
             transform.position += moveDirection * speed * Time.deltaTime;
         }
     }
 
-    public void Fire(Transform newTarget)
+    public void Fire(GameObject newTarget)
     {
         target = newTarget;
         homing = true;
-        Destroy(gameObject, lifeTime);
+        //Destroy(gameObject, lifeTime);
+        StartCoroutine(SetDeactiveDelay());
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -50,12 +51,20 @@ public class ProjectileBehaviour : MonoBehaviour
         if (target != null)
         {
             // checking if the collided object has is our target by comparing tags, 
-            // in our case target tag is "Enemy".
+            // in our case target tag is "Enemy0,1,2,3,4...".
             if (other.gameObject.CompareTag(target.tag))
             {
-                Destroy(other.gameObject, 0.5f);
-                Destroy(gameObject);
+                //Destroy(other.gameObject, 0.5f);
+                other.gameObject.SetActive(false);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
+    }
+
+    IEnumerator SetDeactiveDelay()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        gameObject.SetActive(false);
     }
 }

@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         //detectEnemies_InRadius = GetComponent<DetectEnemies_InRadius>()
-        InvokeRepeating("Attack", 0.3f, 3.0f);
+        InvokeRepeating("Attack", 0.3f, 1.0f);
     }
 
     void OnMove(InputValue value)
@@ -48,10 +48,24 @@ public class PlayerController : MonoBehaviour
         {
             if (enemy != null)
             {
-                //PrintList(DetectEnemies_InRadius.enemyList_InRadius);
-                tempProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-                tempProjectile.GetComponent<ProjectileBehaviour>().Fire(enemy.transform);
+                //tempProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+                tempProjectile = GameObjectInstantiation();
+                tempProjectile.GetComponent<ProjectileBehaviour>().Fire(enemy);
             }
         }
+    }
+
+    GameObject GameObjectInstantiation()
+    {
+        GameObject projectile = ObjectPool.SharedInstance.GetPooledObject("Projectile");
+        if (projectile != null)
+        {
+            projectile.transform.position = transform.position;
+            projectile.transform.rotation = Quaternion.identity;
+            projectile.SetActive(true);
+            return projectile;
+        }
+        return null;
     }
 }
