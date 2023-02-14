@@ -36,18 +36,19 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject(string tag)
+    public GameObject GetPooledObject(string name)
     {
+        //Debug.Log(pooledObjects.Count);
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].name == name)
             {
                 return pooledObjects[i];
             }
         }
         foreach (ObjectPoolItem item in itemsToPool)
         {
-            if (item.objectToPool.tag == tag)
+            if (item.objectToPool.name == name)
             {
                 if (item.shouldExpand)
                 {
