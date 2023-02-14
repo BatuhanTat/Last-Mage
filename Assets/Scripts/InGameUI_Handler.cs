@@ -54,6 +54,9 @@ public class InGameUI_Handler : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        //BC_MusicManager.instance.MainMenuMusic();
+        MusicManager.instance.MainMenuMusic();
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
