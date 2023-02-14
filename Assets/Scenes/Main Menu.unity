@@ -1140,6 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6242277897739827157, guid: 9eee091093be7564ba83351d46e8940f, type: 3}
+  tilemapCollider: {fileID: 0}
 --- !u!1 &704950282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1348,7 @@ RectTransform:
   m_Children:
   - {fileID: 1742902220}
   m_Father: {fileID: 1832592928}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1466,7 +1467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &804624935
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1481,7 +1482,7 @@ RectTransform:
   m_Children:
   - {fileID: 1074953414}
   m_Father: {fileID: 1832592928}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2499,7 +2500,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1832592928}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3268,9 +3269,9 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1504410291}
   - {fileID: 802826480}
   - {fileID: 804624935}
-  - {fileID: 1504410291}
   m_Father: {fileID: 1605304377}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

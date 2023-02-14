@@ -12,7 +12,7 @@ public class UpgradeHandler : MonoBehaviour
 
 
     PlayerController playerController;
-    GameManager.SaveDataClass permenantUpgrades;
+    //GameManager.SaveDataClass permenantUpgrades;
 
     // This list will contain all the taken upgrades including weapons. 
     // This will be used on InGameUI_Handler script to show the current weapons and upgrades taken 
@@ -46,7 +46,7 @@ public class UpgradeHandler : MonoBehaviour
         playerController = this.transform.parent.gameObject.GetComponent<PlayerController>();
         upgradesList = new List<UpgradeClass>();
         GameObject.Find("Canvas").GetComponent<InGameUI_Handler>().SetStarterWeapon(); 
-        CalculateStats();
+        //CalculateStats();
     }
 
     public void TakeWeaponUpgrade(GameObject _weapon, Ingame_Upgrade upgrade)
@@ -134,13 +134,13 @@ public class UpgradeHandler : MonoBehaviour
         return upgradeToRemove;
     }
 
-    void CalculateStats()
+/*     void CalculateStats()
     {
         permenantUpgrades = GameManager.instance.GetPermenant_Upgrades();
         IncreaseSpeed(permenantUpgrades.speed);
         IncreaseMaxHealth(permenantUpgrades.health);
         IncreaseAttackRate(permenantUpgrades.attackRate);
-    }
+    } */
 
     void IncreaseSpeed(int multiplier)
     {

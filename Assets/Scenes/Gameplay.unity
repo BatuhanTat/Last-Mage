@@ -21176,12 +21176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradesList:
-  - {fileID: 11400000, guid: 65cac5c5389d38a4989992fc99d6cd13, type: 2}
+  - {fileID: 11400000, guid: b4135b6b32b21bb44be13cfb8947478e, type: 2}
   upgradeImage: {fileID: 1732575482}
   upgradeName: {fileID: 165206053}
   upgradeDescription: {fileID: 389371784}
-  weaponPrefabs:
-  - {fileID: 8648344139580712067, guid: 13b51e3d0647f504688758606895c9e8, type: 3}
+  weaponPrefabs: []
   defaultUpgrade: {fileID: 11400000, guid: c238dc16331c6294aad060b862cd8c1e, type: 2}
   starterWeapon: {fileID: 11400000, guid: 65cac5c5389d38a4989992fc99d6cd13, type: 2}
   starterWeaponPrefab: {fileID: 8648344139580712067, guid: 13b51e3d0647f504688758606895c9e8, type: 3}

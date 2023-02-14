@@ -20,12 +20,12 @@ public class MenuUI_Handler : MonoBehaviour
     [SerializeField] TextMeshProUGUI attackRateUpgradeCount;
     [SerializeField] TextMeshProUGUI availablePointsCount;
 
-    GameManager.SaveDataClass permenantUpgrades;
+    //GameManager.SaveDataClass permenantUpgrades;
 
-    private void Start()
+    /* private void Start()
     {
         LoadUpgradeStats();
-    }
+    } */
     public void StartGame()
     {
         GameManager.instance.Set_IsGameActive(true);
@@ -34,7 +34,8 @@ public class MenuUI_Handler : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
-    public void UpgradePanel()
+
+   /*  public void UpgradePanel()
     {
         upgradesPanel.SetActive(!upgradesPanel.activeSelf);
     }
@@ -119,6 +120,6 @@ public class MenuUI_Handler : MonoBehaviour
         attackRateUpgradeCount.SetText(permenantUpgrades.attackRate.ToString());
         availablePointsCount.SetText(permenantUpgrades.availablePoints.ToString());
     }
-
+ */
 
 }

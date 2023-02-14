@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject upgradesPanel;
 
     public bool isGameActive { get; private set; }
-    public SaveDataClass playerUpgrades_Permanent = new SaveDataClass();
+    // public SaveDataClass playerUpgrades_Permanent = new SaveDataClass();
 
 
     // Game stat/score variables part.
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = value;
     }
-
+/* 
     [System.Serializable]
     public class SaveDataClass
     {
@@ -90,14 +90,14 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
         return playerUpgrades_Permanent;
-    }
+    } */
 
     // Updates player stats (speed, health, attack rate) when player created. So this function will be called at 
     // the Start() of PlayerController script.
-    public void UpdatePlayerStats()
+   /*  public void UpdatePlayerStats()
     {
         LoadData();
-    }
+    } */
 
 
 }
