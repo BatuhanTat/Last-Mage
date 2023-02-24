@@ -63,7 +63,7 @@ public class FireWand_Weapon : Weapon
 
     GameObject GameObjectInstantiation(Quaternion rt)
     {
-        GameObject projectile = ObjectPool.SharedInstance.GetPooledObject("Fire Wand Projectile");
+        GameObject projectile = ObjectPool.SharedInstance.GetPooledObject("Fire Spell Projectile");
         if (projectile != null)
         {
             projectile.transform.position = player.transform.position;

@@ -12,7 +12,7 @@ public class UpgradeHandler : MonoBehaviour
 
 
     PlayerController playerController;
-    GameManager.SaveDataClass permenantUpgrades;
+    //GameManager.SaveDataClass permenantUpgrades;
 
     // This list will contain all the taken upgrades including weapons. 
     // This will be used on InGameUI_Handler script to show the current weapons and upgrades taken 
@@ -45,23 +45,30 @@ public class UpgradeHandler : MonoBehaviour
     {
         playerController = this.transform.parent.gameObject.GetComponent<PlayerController>();
         upgradesList = new List<UpgradeClass>();
-        GameObject.Find("Canvas").GetComponent<InGameUI_Handler>().SetStarterWeapon(); 
-        CalculateStats();
+        GameObject.Find("Canvas").GetComponent<InGameUI_Handler>().SetStarterWeapon();
+        //CalculateStats();
     }
 
     public void TakeWeaponUpgrade(GameObject _weapon, Ingame_Upgrade upgrade)
     {
+        //Debug.Log("TakeWeapon: " + _weapon);
+
+        // Debug.Log("List Prefab name: " + "prefab.name"); 
+        // Debug.Log("new prefab name: " + "_weapon.name"); 
+
+        // Wind Spell Weapon(Clone)
+        // Wind Spell Weapon
+
         // Add the new weapon to the weaponsList if it does not already added.
         if (!weaponsList.Any(go => go.name.StartsWith(_weapon.name)))
-        {
-            //Debug.Log("Weapon name" + _weapon.name);
+        {        
             GameObject weapon = Instantiate(_weapon, weaponHolder.transform);
             weaponsList.Add(weapon);
             upgradesList.Add(new UpgradeClass(upgrade, 0));
         }
         // If new weapon already exists in the weaponsList instead of adding it again increase it's stats.
         else
-        {
+        {        
             foreach (Transform child in weaponHolder.transform)
             {
                 MonoBehaviour[] scripts = child.gameObject.GetComponents<MonoBehaviour>();
@@ -134,13 +141,13 @@ public class UpgradeHandler : MonoBehaviour
         return upgradeToRemove;
     }
 
-    void CalculateStats()
-    {
-        permenantUpgrades = GameManager.instance.GetPermenant_Upgrades();
-        IncreaseSpeed(permenantUpgrades.speed);
-        IncreaseMaxHealth(permenantUpgrades.health);
-        IncreaseAttackRate(permenantUpgrades.attackRate);
-    }
+    /*     void CalculateStats()
+        {
+            permenantUpgrades = GameManager.instance.GetPermenant_Upgrades();
+            IncreaseSpeed(permenantUpgrades.speed);
+            IncreaseMaxHealth(permenantUpgrades.health);
+            IncreaseAttackRate(permenantUpgrades.attackRate);
+        } */
 
     void IncreaseSpeed(int multiplier)
     {

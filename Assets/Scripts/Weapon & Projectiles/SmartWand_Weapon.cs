@@ -33,7 +33,7 @@ public class SmartWand_Weapon : Weapon
 
     GameObject GameObjectInstantiation()
     {
-        GameObject projectile = ObjectPool.SharedInstance.GetPooledObject("Smart Wand Projectile");
+        GameObject projectile = ObjectPool.SharedInstance.GetPooledObject("Smart Skull Projectile");
         if (projectile != null)
         {
             projectile.transform.position = player.transform.position;
@@ -49,7 +49,6 @@ public class SmartWand_Weapon : Weapon
 
     public override void IncreaseProjectile()
     {
-        Debug.Log("Osurdum");
         numProjectiles++;
         //Debug.Log(this.gameObject.name);
     }

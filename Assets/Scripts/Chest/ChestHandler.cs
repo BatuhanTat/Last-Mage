@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ChestHandler : MonoBehaviour
 {
@@ -68,8 +69,9 @@ public class ChestHandler : MonoBehaviour
              if (up.CurrentUpgradeCount == up.MaxUpgradeCount)
              {
                  upgradesList.Remove(up);
-             }
+             } 
          } */
+        //Debug.Log("Upgrades list: " + upgradesList.Count);
         if (upgrade != null)
         {
             for (int i = 0; i < upgradesList.Count; i++)
@@ -125,9 +127,12 @@ public class ChestHandler : MonoBehaviour
 
     public GameObject Get_WeaponPrefab()
     {
-        if (selectedUpgrade != null && selectedUpgradeIndex < weaponPrefabs.Count)
+        GameObject weaponPrefab = weaponPrefabs.Find(prefab => prefab.name.StartsWith(selectedUpgrade.Name));
+        // if (selectedUpgrade != null && selectedUpgradeIndex < weaponPrefabs.Count && weaponPrefab != null)
+        if (selectedUpgrade != null && weaponPrefab != null)
         {
-            return weaponPrefabs[selectedUpgradeIndex];
+            //Debug.Log("GetweaponPrefab : " + weaponPrefab);
+            return weaponPrefab;
         }
         else
             return null;

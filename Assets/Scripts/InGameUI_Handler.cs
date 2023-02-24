@@ -54,6 +54,9 @@ public class InGameUI_Handler : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        //BC_MusicManager.instance.MainMenuMusic();
+        MusicManager.instance.MainMenuMusic();
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
@@ -116,15 +119,11 @@ public class InGameUI_Handler : MonoBehaviour
     int weaponIndex = 0;
     void HandleWeaponUpgrade(Ingame_Upgrade up)
     {
+        //Debug.Log("Upgrade name: " + up.Name);
         if (!weaponSlots.Any(obj => obj.GetComponentInChildren<TextMeshProUGUI>().text == up.Name))
         {
             if (weaponIndex < weaponSlots.Count)
             {
-                /*    weaponSlots[statIndex].SetActive(true);
-                   weaponSlots[statIndex].GetComponentInChildren<TextMeshProUGUI>().text = up.Name;
-                   weaponSlots[weaponIndex].GetComponentInChildren<Image>().sprite = up.Image;
-                   weaponSlots[weaponIndex].GetComponentInChildren<Slider>().value = 1;
-                   weaponIndex++; */
                 AddToSlot(up, weaponSlots, weaponIndex);
             }
         }
@@ -139,7 +138,6 @@ public class InGameUI_Handler : MonoBehaviour
     {
         if (!statSlots.Any(obj => obj.GetComponentInChildren<TextMeshProUGUI>().text == up.Name))
         {
-            Debug.Log("Osurdum");
             // If the selected upgrade is "Health Regen" upgrade it will not be added to the slot.
             if (statIndex < statSlots.Count && up.Name != "Regen Health")
             {
@@ -155,11 +153,18 @@ public class InGameUI_Handler : MonoBehaviour
     void AddToSlot(Ingame_Upgrade up, List<GameObject> slotList, int slotIndex)
     {
         slotList[slotIndex].SetActive(true);
-        slotList[statIndex].GetComponentInChildren<TextMeshProUGUI>().text = up.Name;
-        slotList[statIndex].GetComponentInChildren<Image>().sprite = up.Image;
-        slotList[statIndex].GetComponentInChildren<Slider>().value = 1;
-        slotList[statIndex].GetComponentInChildren<Slider>().maxValue = up.MaxUpgradeCount;
-        slotIndex++;
+        slotList[slotIndex].GetComponentInChildren<TextMeshProUGUI>().text = up.Name;
+        slotList[slotIndex].GetComponentInChildren<Image>().sprite = up.Image;
+        slotList[slotIndex].GetComponentInChildren<Slider>().value = 1;
+        slotList[slotIndex].GetComponentInChildren<Slider>().maxValue = up.MaxUpgradeCount;
+        if (up.IsWeapon)
+        {
+            weaponIndex++;
+        }
+        else
+        {
+            statIndex++;
+        }
     }
 
     void UpdateSliderValue(Ingame_Upgrade up, List<GameObject> slotList)
