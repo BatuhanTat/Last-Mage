@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33dd809c3fed9b04cad14a15283eb290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  maxHealth: 2
-  score: 20
+  movementSpeed: 1.7
+  maxHealth: 12
+  score: 40
   myCollider: {fileID: 1022575967626412040}
   originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   animation_Handler: {fileID: -5340330027434607584}

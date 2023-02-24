@@ -1,9 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance { get; private set; }
+
+    [SerializeField] Slider volumeSlider;
+    public float currentVolume_Value { get; private set; }
 
     public AudioClip mainMenuMusic;
     public AudioClip gameplayMusic;
@@ -20,18 +24,27 @@ public class MusicManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         //audioSource = GetComponent<AudioSource>();
-        audioSource = gameObject.AddComponent<AudioSource>();
+        //audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void Start()
     {
+        UpdateVolume();
         audioSource.clip = mainMenuMusic;
-        audioSource.Play();
+        audioSource.Play();     
+    }
+
+
+    public void UpdateVolume()
+    {
+        currentVolume_Value = volumeSlider.GetComponent<Slider>().value;
+        audioSource.volume = currentVolume_Value;
     }
 
     public void MainMenuMusic()
     {
-        StopAllCoroutines();   
+        StopAllCoroutines();
         StartCoroutine(FadeOutAndChangeTrack(mainMenuMusic));
     }
 
@@ -53,7 +66,7 @@ public class MusicManager : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        
+
         audioSource.Stop();
         audioSource.clip = newClip;
         audioSource.Play();

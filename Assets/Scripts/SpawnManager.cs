@@ -15,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] int enemiesPerWave_Increase = 2;
     [Tooltip("Increase difficulty every 'x' seconds")]
     [SerializeField] float difficultyIncreaseInterval = 30.0f;
+    [SerializeField] float enemyTypeHandlerInterval = 60.0f;
 
     [Space(2)]
     [Header("Enemy Spawn Position")]
@@ -22,35 +23,34 @@ public class SpawnManager : MonoBehaviour
     [Tooltip("Determine how far away enemies will spawn from player")]
     [SerializeField] float radius = 10.0f;
 
-
     private Coroutine spawnRoutine;
-    private Coroutine makeGameHarder;
+    bool enemyRandom = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Time.timeScale = 3;
         // PrintSpawnVariables();
         spawnRoutine = StartCoroutine(SpawnEnemyWaves());
-        makeGameHarder = StartCoroutine(MakeGameHarder());
+        InvokeRepeating("MakeGameHarder",0,difficultyIncreaseInterval);
+        InvokeRepeating("EnemyTypeHandler",enemyTypeHandlerInterval,enemyTypeHandlerInterval);
     }
 
-    Vector2 RandomPosition_InsideCameraView()
+    Vector2 RandomPosition()
     {
         //Vector2 randomPosition = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(0, Screen.width),
         //                                                                    Random.Range(0, Screen.height)));
-    /*     Vector2 randomPosition = Random.insideUnitCircle.normalized;
-        randomPosition *= Random.Range(10, 12); */
+        /*     Vector2 randomPosition = Random.insideUnitCircle.normalized;
+            randomPosition *= Random.Range(10, 12); */
 
-        Vector2 randomPosition = Random.insideUnitCircle * radius;
+        Vector2 randomPosition = Random.insideUnitCircle.normalized * radius;
         randomPosition = (Vector2)player.transform.position + randomPosition;
         return randomPosition;
     }
 
-
     // Make game harder every 'x', 30.0, seconds.
-    IEnumerator MakeGameHarder()
+    void MakeGameHarder()
     {
-        yield return new WaitForSeconds(difficultyIncreaseInterval);
         // waveInterval will be capped at 1.0f. It will not go lower.
         if (waveInterval >= 1.5f)
         {
@@ -59,6 +59,17 @@ public class SpawnManager : MonoBehaviour
         enemiesPerWave += enemiesPerWave_Increase;
         // PrintSpawnVariables();
     }
+    void EnemyTypeHandler()
+    {   if(enemyTypeLimit < 3)
+        {
+            enemyTypeLimit++;
+        }
+        else if (enemyTypeLimit == 3)
+        {
+            enemyRandom = true;
+        }
+        //enemyTypeLimit = (enemyTypeLimit < 4) ? enemyTypeLimit + 1 : enemyTypeLimit; 
+    }
 
     void PrintSpawnVariables()
     {
@@ -66,16 +77,24 @@ public class SpawnManager : MonoBehaviour
         Debug.Log("enemiesPerWave : " + enemiesPerWave);
     }
 
+    int enemyTypeLimit = 0;
     IEnumerator SpawnEnemyWaves()
     {
         yield return new WaitForSeconds(startWait);
         while (true)
-        {
-            //int waveType = Random.Range(0, 4);
-            int waveType = 3;
+        {   
+            int waveType;
+            if(enemyRandom)
+            {
+                waveType = Random.Range(0, enemyTypeLimit);
+            }
+            else
+            {
+                waveType = enemyTypeLimit;
+            }    
             for (int i = 0; i < enemiesPerWave; i++)
             {
-                Vector2 randomPosition = RandomPosition_InsideCameraView();
+                Vector2 randomPosition = RandomPosition();
                 if (waveType == 0)
                 {
                     GameObject enemy0 = ObjectPool.SharedInstance.GetPooledObject("Enemy0");

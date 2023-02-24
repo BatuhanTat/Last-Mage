@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            flashEffect.Flash();
+            //flashEffect.Flash();
             timer += Time.deltaTime;
             // Reduce health on per 0.2f.
             if (timer > 0.2f)
@@ -123,6 +123,7 @@ public class PlayerController : MonoBehaviour
 
     public void DecreaseHealth()
     {
+        flashEffect.Flash();
         currentHealth -= 1.0f;
         // Debug.Log("Player health: " + currentHealth);
         healthBar.SetHealth(currentHealth);

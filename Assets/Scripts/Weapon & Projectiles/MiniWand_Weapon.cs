@@ -32,7 +32,7 @@ public class MiniWand_Weapon : Weapon
 
     GameObject GameObjectInstantiation()
     {
-        GameObject projectile = ObjectPool.SharedInstance.GetPooledObject("Mini Wand Projectile");
+        GameObject projectile = ObjectPool.SharedInstance.GetPooledObject("Wind Spell Projectile");
         if (projectile != null)
         {
             projectile.transform.position = player.transform.position;

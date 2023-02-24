@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33dd809c3fed9b04cad14a15283eb290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  maxHealth: 2
+  movementSpeed: 2.4
+  maxHealth: 4
   score: 10
   myCollider: {fileID: 1053058085093302977}
   originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

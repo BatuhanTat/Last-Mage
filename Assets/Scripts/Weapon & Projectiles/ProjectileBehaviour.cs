@@ -37,7 +37,7 @@ public class ProjectileBehaviour : MonoBehaviour
             }
             else if (target.activeSelf == false)
             {
-                Debug.Log("Zortladim");
+                //Debug.Log("Zortladim");
                 transform.position += moveDirection * speed * Time.deltaTime;
             }
         }
@@ -72,10 +72,19 @@ public class ProjectileBehaviour : MonoBehaviour
           }
       } */
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.GetComponent<Enemy>().DecreaseHealth(damage);
-        gameObject.SetActive(false);
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Enemy>().DecreaseHealth(damage);
+            gameObject.SetActive(false);
+        }
+        else if (other.CompareTag("Boundary"))
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 
     public void StartDelay()

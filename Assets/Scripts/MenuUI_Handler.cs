@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class MenuUI_Handler : MonoBehaviour
-{
+{   
+    [SerializeField] GameObject helpPanel;
+
+    [Space(3)]
     [SerializeField] GameObject upgradesPanel;
     [Header("Upgrade texts")]
     [SerializeField] TextMeshProUGUI speedUpgradeText;
@@ -35,6 +38,15 @@ public class MenuUI_Handler : MonoBehaviour
         MusicManager.instance.GameplayMusic();
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
+    }
+
+    public void HelpPanel()
+    {
+        helpPanel.SetActive(!helpPanel.activeSelf);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     /*  public void UpgradePanel()

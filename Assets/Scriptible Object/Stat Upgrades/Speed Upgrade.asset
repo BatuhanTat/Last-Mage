@@ -17,4 +17,4 @@ MonoBehaviour:
   probability: 0.2
   image: {fileID: -884712254, guid: 049438fc28f9fa2468ae0e3972630159, type: 3}
   isWeapon: 0
-  max_UpgradeCount: 4
+  max_UpgradeCount: 3
