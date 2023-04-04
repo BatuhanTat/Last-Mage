@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -102,6 +102,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1651,43 +1663,43 @@ TextureImporter:
       Freebies_Icons_Skills_10: 1829272071
       Freebies_Icons_Skills_53: 1064817245
       Freebies_Icons_Skills_35: 1847468042
+      Freebies_Icons_Skills_67: 810166792
       Freebies_Icons_Skills_19: -1410403016
       Freebies_Icons_Skills_7: -1907999817
       Freebies_Icons_Skills_39: -1899116403
       Freebies_Icons_Skills_66: -828018296
-      Freebies_Icons_Skills_8: -534653477
+      Freebies_Icons_Skills_52: 205633963
       Freebies_Icons_Skills_30: -1442141263
-      Freebies_Icons_Skills_34: 1545122431
+      Freebies_Icons_Skills_8: -534653477
+      Freebies_Icons_Skills_71: -884712254
+      Freebies_Icons_Skills_57: 443822962
       Freebies_Icons_Skills_31: 1803283537
       Freebies_Icons_Skills_40: -1582871121
       Freebies_Icons_Skills_56: 768963413
-      Freebies_Icons_Skills_9: 270482868
-      Freebies_Icons_Skills_52: 205633963
-      Freebies_Icons_Skills_32: -479107947
-      Freebies_Icons_Skills_42: 1887400982
-      Freebies_Icons_Skills_0: 806910327
-      Freebies_Icons_Skills_46: -351195527
       Freebies_Icons_Skills_45: 1098853368
-      Freebies_Icons_Skills_20: -570230974
-      Freebies_Icons_Skills_37: 1770002719
-      Freebies_Icons_Skills_57: 443822962
-      Freebies_Icons_Skills_5: 46690007
-      Freebies_Icons_Skills_44: -1735778729
-      Freebies_Icons_Skills_58: 601995685
-      Freebies_Icons_Skills_60: -1071945669
-      Freebies_Icons_Skills_51: -841798279
+      Freebies_Icons_Skills_46: -351195527
+      Freebies_Icons_Skills_32: -479107947
       Freebies_Icons_Skills_62: -1351030612
-      Freebies_Icons_Skills_67: 810166792
-      Freebies_Icons_Skills_71: -884712254
+      Freebies_Icons_Skills_0: 806910327
+      Freebies_Icons_Skills_37: 1770002719
+      Freebies_Icons_Skills_58: 601995685
+      Freebies_Icons_Skills_9: 270482868
+      Freebies_Icons_Skills_34: 1545122431
       Freebies_Icons_Skills_65: 1707582201
+      Freebies_Icons_Skills_51: -841798279
+      Freebies_Icons_Skills_5: 46690007
+      Freebies_Icons_Skills_20: -570230974
       Freebies_Icons_Skills_36: 769130835
       Freebies_Icons_Skills_21: -535315064
       Freebies_Icons_Skills_6: 306065162
       Freebies_Icons_Skills_14: 1615646650
+      Freebies_Icons_Skills_42: 1887400982
+      Freebies_Icons_Skills_60: -1071945669
       Freebies_Icons_Skills_18: -127688807
+      Freebies_Icons_Skills_50: 17166360
       Freebies_Icons_Skills_48: -1351688502
       Freebies_Icons_Skills_55: 1875194061
-      Freebies_Icons_Skills_50: 17166360
+      Freebies_Icons_Skills_44: -1735778729
       Freebies_Icons_Skills_49: 769076662
       Freebies_Icons_Skills_17: 1517603414
       Freebies_Icons_Skills_3: 987376484
